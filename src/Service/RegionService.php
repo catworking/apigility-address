@@ -71,6 +71,25 @@ class RegionService
     }
 
     /**
+     * @param $name
+     * @param null $type
+     * @return DoctrineEntity\Region
+     */
+    public function getRegionByName($name, $type = null)
+    {
+        $params = ['name'=>$name];
+        if (!empty($type)) $params['type'] = $type;
+
+        $regions = $this->getRegions((object)$params);
+
+        if ($regions->count()) {
+            return $regions->getItems(0,1)[0];
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * 获取区域列表
      *
      * @param $params
@@ -82,6 +101,11 @@ class RegionService
         $qb->select('r')->from('ApigilityAddress\DoctrineEntity\Region', 'r');
 
         $where = '';
+
+        if (isset($params->name)) {
+            if (!empty($where)) $where .= ' AND ';
+            $where .= 'r.name LIKE :name';
+        }
 
         if (isset($params->type)) {
             if (!empty($where)) $where .= ' AND ';
@@ -96,6 +120,7 @@ class RegionService
 
         if (!empty($where)) {
             $qb->where($where);
+            if (isset($params->name)) $qb->setParameter('name', '%'.$params->name.'%');
             if (isset($params->type)) $qb->setParameter('type', $params->type);
             if (isset($params->region_id)) $qb->setParameter('region_id', $params->region_id);
         }
