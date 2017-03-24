@@ -40,6 +40,13 @@ class Region
     protected $id;
 
     /**
+     * 位置代码
+     *
+     * @Column(type="string", length=50, nullable=false)
+     */
+    protected $code;
+
+    /**
      * 名称
      *
      * @Column(type="string", length=50, nullable=false)
@@ -86,6 +93,17 @@ class Region
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+        return $this;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
     }
 
     public function setName($name)
