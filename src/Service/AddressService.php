@@ -57,6 +57,52 @@ class AddressService
     }
 
     /**
+     * 根据一个身份证号码来识别region，并创建一个地址
+     *
+     * @param $identityCardNumber
+     * @param null $detail
+     * @param bool $persist
+     * @return DoctrineEntity\Address
+     * @throws \Exception
+     */
+    public function createAddressByIdentityCardNumber($identityCardNumber, $detail = null, $persist = true)
+    {
+        // 取身份证号码前6位
+        $region_code = substr($identityCardNumber, 0, 6);
+
+        $region_district = $this->regionService->getRegionByCode($region_code, 'district');
+        $region_city = null;
+        $region_province = null;
+
+        if ($region_district instanceof DoctrineEntity\Region) $region_city = $region_district->getParent();
+        if ($region_city instanceof DoctrineEntity\Region) $region_province = $region_city->getParent();
+
+        // 省市区完全匹配成功
+        if ($region_province instanceof DoctrineEntity\Region) {
+            $data = [
+                'province' => $region_province->getId(),
+                'city' => $region_city->getId(),
+                'district' => $region_district->getId()
+            ];
+
+            if ($detail !== null) $data['detail'] = (string)$detail;
+
+            if ($persist) {
+                return $this->createAddress((object)$data);
+            } else {
+                $address = new DoctrineEntity\Address();
+                $address->setProvince($region_province);
+                $address->setCity($region_city);
+                $address->setDistrict($region_district);
+
+                return $address;
+            }
+        } else {
+            throw new \Exception('身份证号码不是有效的', 500);
+        }
+    }
+
+    /**
      * 获取一个地址
      *
      * @param $address_id

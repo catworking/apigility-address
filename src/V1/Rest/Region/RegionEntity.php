@@ -14,6 +14,13 @@ class RegionEntity extends ApigilityEntity
     protected $id;
 
     /**
+     * 位置代码
+     *
+     * @Column(type="string", length=50, nullable=false)
+     */
+    protected $code;
+
+    /**
      * 名称
      *
      * @Column(type="string", length=50, nullable=false)
@@ -49,6 +56,17 @@ class RegionEntity extends ApigilityEntity
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+        return $this;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
     }
 
     public function setName($name)

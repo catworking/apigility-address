@@ -71,6 +71,25 @@ class RegionService
     }
 
     /**
+     * @param $code
+     * @param null $type
+     * @return DoctrineEntity\Region
+     */
+    public function getRegionByCode($code, $type = null)
+    {
+        $params = ['code'=>$code];
+        if (!empty($type)) $params['type'] = $type;
+
+        $regions = $this->getRegions((object)$params);
+
+        if ($regions->count()) {
+            return $regions->getItems(0,1)[0];
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * @param $name
      * @param null $type
      * @return DoctrineEntity\Region
@@ -102,6 +121,11 @@ class RegionService
 
         $where = '';
 
+        if (isset($params->code)) {
+            if (!empty($where)) $where .= ' AND ';
+            $where .= 'r.code = :code';
+        }
+
         if (isset($params->name)) {
             if (!empty($where)) $where .= ' AND ';
             $where .= 'r.name LIKE :name';
@@ -120,6 +144,7 @@ class RegionService
 
         if (!empty($where)) {
             $qb->where($where);
+            if (isset($params->code)) $qb->setParameter('code', $params->code);
             if (isset($params->name)) $qb->setParameter('name', '%'.$params->name.'%');
             if (isset($params->type)) $qb->setParameter('type', $params->type);
             if (isset($params->region_id)) $qb->setParameter('region_id', $params->region_id);

@@ -80,6 +80,9 @@ class Address
         return $this;
     }
 
+    /**
+     * @return Region
+     */
     public function getProvince()
     {
         return $this->province;
@@ -91,6 +94,9 @@ class Address
         return $this;
     }
 
+    /**
+     * @return Region
+     */
     public function getCity()
     {
         return $this->city;
@@ -102,6 +108,9 @@ class Address
         return $this;
     }
 
+    /**
+     * @return Region
+     */
     public function getDistrict()
     {
         return $this->district;

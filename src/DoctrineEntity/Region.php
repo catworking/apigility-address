@@ -145,6 +145,9 @@ class Region
         return $this;
     }
 
+    /**
+     * @return Region
+     */
     public function getParent()
     {
         return $this->parent;
