@@ -53,7 +53,7 @@ return [
                 0 => 'type',
                 1 => 'region_id',
             ],
-            'page_size' => 25,
+            'page_size' => '100',
             'page_size_param' => null,
             'entity_class' => \ApigilityAddress\V1\Rest\Region\RegionEntity::class,
             'collection_class' => \ApigilityAddress\V1\Rest\Region\RegionCollection::class,
