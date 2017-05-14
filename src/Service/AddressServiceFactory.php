@@ -5,7 +5,7 @@
  * Date: 2016/12/23
  * Time: 18:02:52
  */
-namespace ApigilityAddress\Service;
+namespace ApigilityLogic\Address\Service;
 
 use Zend\ServiceManager\ServiceManager;
 
