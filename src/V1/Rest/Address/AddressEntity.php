@@ -1,9 +1,9 @@
 <?php
-namespace ApigilityAddress\V1\Rest\Address;
+namespace ApigilityLogic\Address\V1\Rest\Address;
 
-use ApigilityAddress\DoctrineEntity\Region;
-use ApigilityAddress\V1\Rest\Region\RegionEntity;
-use ApigilityCatworkFoundation\Base\ApigilityEntity;
+use ApigilityLogic\Address\DoctrineEntity\Region;
+use ApigilityLogic\Address\V1\Rest\Region\RegionEntity;
+use ApigilityLogic\Foundation\Base\ApigilityEntity;
 
 class AddressEntity extends ApigilityEntity
 {
