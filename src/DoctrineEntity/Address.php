@@ -21,7 +21,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class Address
- * @package ApigilityAddress\DoctrineEntity
+ * @package ApigilityLogic\Address\DoctrineEntity
  * @Entity @Table(name="apigilityaddress_address")
  */
 class Address
