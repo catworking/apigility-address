@@ -1,0 +1,18 @@
+{
+    "name": "apigility-logic/apigility-address",
+    "description": " ",
+    "keywords": [
+        "zf2",
+        "apifility",
+        "address"
+    ],
+    "homepage": "https://github.com/apigility-logic/apigility-address",
+    "autoload": {
+        "psr-4": {
+            "ApigilityAddress\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^5.5 || ^7.0"
+    }
+}
