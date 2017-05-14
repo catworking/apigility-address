@@ -5,14 +5,14 @@
  * Date: 2016/12/23
  * Time: 18:02:41
  */
-namespace ApigilityAddress\Service;
+namespace ApigilityLogic\Address\Service;
 
 use Zend\ServiceManager\ServiceManager;
 use Zend\Hydrator\ClassMethods as ClassMethodsHydrator;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Tools\Pagination\Paginator as DoctrineToolPaginator;
 use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrinePaginatorAdapter;
-use ApigilityAddress\DoctrineEntity;
+use ApigilityLogic\Address\DoctrineEntity;
 
 class AddressService
 {
