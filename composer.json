@@ -14,5 +14,7 @@
     },
     "require": {
         "php": "^5.5 || ^7.0"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
