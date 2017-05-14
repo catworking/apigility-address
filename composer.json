@@ -9,7 +9,7 @@
     "homepage": "https://github.com/apigility-logic/apigility-address",
     "autoload": {
         "psr-4": {
-            "ApigilityAddress\\": "src/"
+            "ApigilityLogic\\ApigilityAddress\\": "src/"
         }
     },
     "require": {
