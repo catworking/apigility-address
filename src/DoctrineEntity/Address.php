@@ -5,7 +5,7 @@
  * Date: 2016/11/21
  * Time: 11:20
  */
-namespace ApigilityLogic\ApigilityAddress\DoctrineEntity;
+namespace ApigilityLogic\Address\DoctrineEntity;
 
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Table;
