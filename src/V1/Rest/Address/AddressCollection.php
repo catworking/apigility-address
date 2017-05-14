@@ -1,5 +1,5 @@
 <?php
-namespace ApigilityAddress\V1\Rest\Address;
+namespace ApigilityLogic\Address\V1\Rest\Address;
 
 use ApigilityCatworkFoundation\Base\ApigilityCollection;
 
